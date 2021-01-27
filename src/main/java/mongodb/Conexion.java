@@ -13,17 +13,12 @@ public class Conexion {
     private MongoClientURI Conexion;
 
     public Conexion() {
-
-//        MongoClientURI uri = new MongoClientURI("");
-//        MongoClient mongoClient = new MongoClient(uri);
-//        MongoDatabase database = mongoClient.getDatabase("almacen");
-//        MongoCollection coleccion = database.getCollection("producto");
-        //mongoClient.close();
         Conexion = getConexion();
     }
 
     public static MongoClientURI getConexion() {
-        //mongodb+srv://admin:100Alexis@cluster0.qhag3.mongodb.net/almacen?retryWrites=true&w=majority
+        //mongodb+srv://admin:100Alexis@cluster0.qhag3.mongodb.net/biblioteca?retryWrites=true&w=majority
+        //mongodb://localhost
         MongoClientURI uri = new MongoClientURI(
                 "mongodb://localhost");
         return uri;
@@ -63,7 +58,7 @@ public class Conexion {
         for (Document d : doc) {
             libro.put(d.getObjectId("_id").toHexString(), d);
         }
-
+             
         return libro.toString();
     }
 
